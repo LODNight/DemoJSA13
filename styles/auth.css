@@ -1,38 +1,45 @@
+/* Import font Roboto từ Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
 
+/* Reset CSS cơ bản cho toàn bộ trang */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  margin: 0;              /* Xóa khoảng cách mặc định */
+  padding: 0;             /* Xóa padding mặc định */
+  box-sizing: border-box; /* Tính width/height bao gồm cả padding + border */
+  font-family: "Roboto", sans-serif; /* Áp dụng font Roboto */
 }
 
+/* Nền chính của trang */
 body {
-  background: #000;
+  background: #000; /* màu đen */
 }
 
+/* Tạo lớp nền ảnh mờ phía sau (overlay) */
 body::before {
-  content: "";
-  position: absolute;
+  content: "";          /* bắt buộc phải có khi dùng ::before */
+  position: absolute;   /* đặt vị trí tuyệt đối */
   left: 0;
   top: 0;
-  opacity: 0.5;
+  opacity: 0.5;         /* làm mờ ảnh */
   width: 100%;
   height: 100%;
-  background: url("../assets/hero-img.jpg");
-  background-position: center;
+  background: url("../assets/hero-img.jpg"); /* ảnh nền */
+  background-position: center; /* căn giữa ảnh */
 }
 
+/* Thanh điều hướng (nav) */
 nav {
-  position: fixed;
-  padding: 25px 60px;
-  z-index: 1;
+  position: fixed;     /* cố định trên màn hình */
+  padding: 25px 60px;  /* khoảng cách trong */
+  z-index: 1;          /* nằm trên lớp nền */
 }
 
+/* Logo trong nav */
 nav a img {
-  width: 167px;
+  width: 167px; /* chỉnh kích thước logo */
 }
 
+/* Khung form đăng nhập */
 .form-wrapper {
   position: absolute;
   left: 50%;
@@ -40,25 +47,33 @@ nav a img {
   border-radius: 4px;
   padding: 70px;
   width: 450px;
+
+  /* căn giữa form */
   transform: translate(-50%, -50%);
+
+  /* nền đen trong suốt */
   background: rgba(0, 0, 0, 0.75);
 }
 
+/* Tiêu đề form */
 .form-wrapper h2 {
   color: #fff;
   font-size: 2rem;
 }
 
+/* Khoảng cách form */
 .form-wrapper form {
   margin: 25px 0 65px;
 }
 
+/* Mỗi ô input */
 form .form-control {
   height: 50px;
-  position: relative;
+  position: relative; /* để label position theo */
   margin-bottom: 16px;
 }
 
+/* Input */
 .form-control input {
   height: 100%;
   width: 100%;
@@ -71,109 +86,131 @@ form .form-control {
   padding: 0 20px;
 }
 
+/* Khi input được focus hoặc hợp lệ */
 .form-control input:is(:focus, :valid) {
-  background: #444;
-  padding: 16px 20px 0;
+  background: #444;          /* đổi màu nền */
+  padding: 16px 20px 0;      /* đẩy text xuống */
 }
 
+/* Label (placeholder giả) */
 .form-control label {
   position: absolute;
   left: 20px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%); /* căn giữa theo chiều dọc */
   font-size: 1rem;
-  pointer-events: none;
+  pointer-events: none; /* không cho click */
   color: #8c8c8c;
   transition: all 0.1s ease;
 }
 
+/* Khi input focus hoặc valid -> label bay lên */
 .form-control input:is(:focus, :valid) ~ label {
-  font-size: 0.75rem;
-  transform: translateY(-130%);
+  font-size: 0.75rem;       /* nhỏ lại */
+  transform: translateY(-130%); /* bay lên trên */
 }
 
+/* Nút submit */
 form button {
   width: 100%;
   padding: 16px 0;
   font-size: 1rem;
-  background: #e50914;
+  background: #e50914; /* đỏ */
   color: #fff;
   font-weight: 500;
   border-radius: 4px;
   border: none;
   outline: none;
   margin: 25px 0 10px;
-  cursor: pointer;
+  cursor: pointer; /* hiện bàn tay khi hover */
   transition: 0.1s ease;
 }
 
+/* Hover nút */
 form button:hover {
-  background: #c40812;
+  background: #c40812; /* đỏ đậm hơn */
 }
 
+/* Link trong form */
 .form-wrapper a {
-  text-decoration: none;
+  text-decoration: none; /* bỏ gạch chân */
 }
 
+/* Hover link */
 .form-wrapper a:hover {
   text-decoration: underline;
 }
 
+/* Áp dụng màu cho nhiều thẻ cùng lúc */
 .form-wrapper :where(label, p, small, a) {
   color: #b3b3b3;
 }
 
+/* Phần help dưới form */
 form .form-help {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* dàn đều */
 }
 
+/* Remember me */
 form .remember-me {
   display: flex;
 }
 
+/* Checkbox */
 form .remember-me input {
   margin-right: 5px;
-  accent-color: #b3b3b3;
+  accent-color: #b3b3b3; /* màu checkbox */
 }
 
+/* Chữ nhỏ */
 form .form-help :where(label, a) {
   font-size: 0.9rem;
 }
 
+/* Link trong đoạn text */
 .form-wrapper p a {
   color: #fff;
 }
 
+/* Text nhỏ */
 .form-wrapper small {
   display: block;
   margin-top: 15px;
   color: #b3b3b3;
 }
 
+/* Link trong small */
 .form-wrapper small a {
-  color: #0071eb;
+  color: #0071eb; /* xanh */
 }
 
+/* Responsive (màn hình nhỏ) */
 @media (max-width: 740px) {
+
+  /* Ẩn ảnh nền */
   body::before {
     display: none;
   }
 
+  /* Giảm padding */
   nav,
   .form-wrapper {
     padding: 20px;
   }
 
+  /* Logo nhỏ lại */
   nav a img {
     width: 140px;
   }
 
+  /* Form full màn hình */
   .form-wrapper {
     width: 100%;
     top: 43%;
   }
 
+  /* Giảm khoảng cách */
   .form-wrapper form {
     margin: 25px 0 40px;
   }
